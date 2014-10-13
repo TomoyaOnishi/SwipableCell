@@ -13,6 +13,7 @@
 		DD505B3B19EA95A400FBF979 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD505B3A19EA95A400FBF979 /* Images.xcassets */; };
 		DD505B3E19EA95A400FBF979 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD505B3C19EA95A400FBF979 /* LaunchScreen.xib */; };
 		DD505B4A19EA95A400FBF979 /* SwipableCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD505B4919EA95A400FBF979 /* SwipableCellTests.swift */; };
+		DD505B5419EA95C800FBF979 /* SwipableTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD505B5319EA95C800FBF979 /* SwipableTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		DD505B4319EA95A400FBF979 /* SwipableCellTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwipableCellTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD505B4819EA95A400FBF979 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DD505B4919EA95A400FBF979 /* SwipableCellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipableCellTests.swift; sourceTree = "<group>"; };
+		DD505B5319EA95C800FBF979 /* SwipableTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipableTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 			children = (
 				DD505B3319EA95A400FBF979 /* AppDelegate.swift */,
 				DD505B3519EA95A400FBF979 /* ViewController.swift */,
+				DD505B5319EA95C800FBF979 /* SwipableTableViewCell.swift */,
 				DD505B3719EA95A400FBF979 /* Main.storyboard */,
 				DD505B3A19EA95A400FBF979 /* Images.xcassets */,
 				DD505B3C19EA95A400FBF979 /* LaunchScreen.xib */,
@@ -213,6 +216,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD505B3619EA95A400FBF979 /* ViewController.swift in Sources */,
+				DD505B5419EA95C800FBF979 /* SwipableTableViewCell.swift in Sources */,
 				DD505B3419EA95A400FBF979 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
