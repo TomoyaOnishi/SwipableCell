@@ -29,6 +29,7 @@ class SwipableTableViewCell: UITableViewCell {
     
     
     var trackingCount = 0
+    var trackingTranslation = CGPointZero
     var allowsSwipe = false
     
     
@@ -38,12 +39,15 @@ class SwipableTableViewCell: UITableViewCell {
             let translation = CGPoint(x: -self.swipeViewMarginRight.constant, y: 0.0)
             self.panGestureRecognizer.setTranslation(translation, inView: self.swipeView)
         case .Changed:
-            self.trackingCount++
+            let translation = self.panGestureRecognizer.translationInView(self.swipeView)
             
             // 最初の数回のtranslationを別途保持してスワイプの角度を計算し、
             // TableViewのスクロールなのかセルのスワイプなのかを判断する
+            self.trackingCount++
+            self.trackingTranslation.x += translation.x
+            self.trackingTranslation.y += translation.y
             if trackingCount == 3 {
-                self.allowsSwipe = self.allowsSwipeWithTranslation(/*数回分の移動量を渡す*/nil)
+                self.allowsSwipe = self.allowsSwipeWithTranslation(self.trackingTranslation)
             }
             
             if self.allowsSwipe {
@@ -56,6 +60,7 @@ class SwipableTableViewCell: UITableViewCell {
         case .Ended:
             self.trackingCount = 0
             self.allowsSwipe = false
+            self.trackingTranslation = CGPointZero
             self.tableView.scrollEnabled = true
         default:
             break
@@ -63,9 +68,18 @@ class SwipableTableViewCell: UITableViewCell {
     }
     
     
-    func allowsSwipeWithTranslation(translation: CGPoint?) -> Bool {
+    func allowsSwipeWithTranslation(translation: CGPoint) -> Bool {
         // スワイプの角度を計算して判断する
-        return rand() % 2 == 0
+        let slope: CGFloat = abs(translation.y) / abs(translation.x)
+        let radian: CGFloat = atan(slope)
+        let angle = radian * 180 / CGFloat(M_PI)
+        
+        if angle >= 0 && angle <= 30 {
+            
+            return true
+        }
+        
+        return false
     }
     
     
