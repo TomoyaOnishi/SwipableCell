@@ -1,0 +1,2 @@
+# SwipableCell
+AutoLayoutを使ったスワイプできるTableViewCellのサンプルです。
